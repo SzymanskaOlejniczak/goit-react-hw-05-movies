@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import EditorList from '../EditorList/EditorList';
 import api from '../../services/api';
 import Loader from 'components/Loader/Loader';
-import s from './HomePage.module.css';
+
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
