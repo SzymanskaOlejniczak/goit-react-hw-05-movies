@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "./Navigation.module.css";
+import cn from 'classnames';
 
 const Navigation = () => {
   return (
@@ -9,14 +10,17 @@ const Navigation = () => {
         <nav className={s.mainNavigation}>
           <NavLink
             to="/"
-            className={s.mainNavigation__link}
-           
+            className={({ isActive }) =>
+            cn(s.mainNavigation__link, { [s.active]: isActive })
+            }
           >
             Home
           </NavLink>
           <NavLink
             to="/movies"
-            className={s.mainNavigation__link}
+            className={({ isActive }) =>
+              cn(s.mainNavigation__link, { [s.active]: isActive })
+            }
           
           >
             Movies
