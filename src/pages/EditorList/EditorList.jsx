@@ -2,16 +2,16 @@ import { Link, useLocation } from 'react-router-dom';
 import s from './EditorList.module.css'
 import PropTypes from 'prop-types';
 
-const EditorList = ({ films }) => {
+const EditorList = ({ movies }) => {
   const location = useLocation();
 
   return (
     <ul className={s.moviesList}>
-      {films &&
-        films.map(film => (
-          <li className={s.moviesList__item} key={film.id}>
-            <Link to={`/movies/${film.id}`} state={{ from: location }}>
-              {film.title}
+      {movies &&
+        movies.map(movie => (
+          <li className={s.moviesList__item} key={movie.id}>
+            <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+              {movie.title}
             </Link>
           </li>
         ))}
@@ -20,7 +20,7 @@ const EditorList = ({ films }) => {
 };
 
 EditorList.propTypes = {
-  films: PropTypes.arrayOf(
+  movies: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       id: PropTypes.number.isRequired,
