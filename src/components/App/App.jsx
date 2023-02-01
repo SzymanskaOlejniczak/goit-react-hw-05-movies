@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from 'react-router-dom';
 //import s from './App.module.css';
 import Navigation from '../Navigation/Navigation';
 
-const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const Page = lazy(() => import('../../pages/Page/Page'));
 const MoviesPage = lazy(() => import('../../pages/MoviesPage/MoviesPage'));
 const MovieDetailsPage = lazy(() =>
   import('../../pages/MovieDetailsPage/MovieDetailsPage')
@@ -17,7 +17,7 @@ export const App = () => {
       <Navigation />
       <Suspense fallback="loading">
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<Page />} />
           <Route path="movies" element={<MoviesPage />} />
           <Route path="movies/:movieId" element={<MovieDetailsPage />}>
             <Route path="cast" element={<Cast />} />
