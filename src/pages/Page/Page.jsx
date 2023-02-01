@@ -6,15 +6,15 @@ import s from './Page.module.css';
 
 
 const Page = () => {
-  const [films, setFilms] = useState([]);
+  const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const FetchTrendingMovie = async () => {
       setLoading(true);
       try {
-        const trendingFilms = await api.fetchPopular();
-        setFilms(trendingFilms);
+        const trendingMovies = await api.fetchPopular();
+        setMovies(trendingMovies);
       } catch (error) {
         console.log(error);
       } finally {
@@ -27,7 +27,7 @@ const Page = () => {
   return (
     <main>
       <h1 className={s.title}>Trending today</h1>
-      {films && <EditorList films={films} />}
+      {movies && <EditorList movies={movies} />}
       {loading && <Loader />}
     </main>
   );
