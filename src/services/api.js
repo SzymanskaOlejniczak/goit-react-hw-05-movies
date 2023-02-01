@@ -9,9 +9,9 @@ const fetchPopular = async () => {
   return response.data.results;
 };
 
-const fetchSearchByKeyword = async keyword => {
+const fetchSearchByQuery = async query => {
   const response = await axios.get(
-    `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${keyword}`
+    `search/movie?api_key=${API_KEY}&language=en-US&page=1&include_adult=false&query=${query}`
   );
   return response.data.results;
 };
@@ -39,7 +39,7 @@ const fetchReviews = async movieId => {
   
   const api = {
     fetchPopular,
-    fetchSearchByKeyword,
+    fetchSearchByQuery,
     fetchMovieById,
     fetchActors,
     fetchReviews,
