@@ -6,7 +6,7 @@ import EditorList from '../EditorList/EditorList';
 import s from './MoviesPage.module.css'
 
 const MoviesPage = () => {
-  const [searchFilms, setSearchFilms] = useState([]);
+  const [searchMovie, setSearchMovie] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams({});
   const queryMovie = searchParams.get('query');
@@ -22,7 +22,7 @@ const MoviesPage = () => {
         setLoading(true);
         try {
           const searchMovie = await api.fetchSearchByQuery(queryMovie);
-          setSearchFilms(searchMovie);
+          setSearchMovie(searchMovie);
         } catch (error) {
           console.log(error);
         } finally {
@@ -41,7 +41,7 @@ const MoviesPage = () => {
           <button type="submit" className={s.searchForm__button}>Search</button>
         </form>
         {loading && <Loader />}
-        {searchFilms && <EditorList films={searchFilms} />}
+        {searchMovie && <EditorList movies={searchMovie} />}
       </div>
     </main>
   );
