@@ -21,7 +21,7 @@ const MoviesPage = () => {
       const onSearchMovie = async () => {
         setLoading(true);
         try {
-          const searchMovie = await api.fetchSearchByKeyword(queryMovie);
+          const searchMovie = await api.fetchSearchByQuery(queryMovie);
           setSearchFilms(searchMovie);
         } catch (error) {
           console.log(error);
